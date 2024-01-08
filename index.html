@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Calculadora</title>
+<style>
+    body {
+        background-color: #87CEEB; /* Cor de fundo */
+        font-family: 'Times New Roman', Times, serif;
+        
+    }
+    .container {
+        display: center;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 200px;
+        padding: 100px;
+    }
+    
+</style>
+</head>
+<body>
+<div class="container">
+    <!-- Calculadora -->
+    
+    <p></p>
+
+    <style>
+      body {
+        background-color: rgb(15, 70, 95);
+        font-family: "Times New Roman", Times, serif;
+      }
+      label,
+      input,
+      button {
+        margin-bottom: 10px;
+        display: center;
+        align-items: center;
+        justify-content: center;
+      }
+    </style>
+    <script>
+      var calculadora = {
+        valor1: 0,
+        valor2: 0,
+        operador: "",
+        resultado: 0,
+
+        obterValores: function () {
+          this.valor1 = parseFloat(document.getElementById("valor1").value);
+          this.operador = document.getElementById("operador").value;
+          this.valor2 = parseFloat(document.getElementById("valor2").value);
+        },
+
+        validarValores: function () {
+          return !isNaN(this.valor1) && !isNaN(this.valor2);
+        },
+
+        calcular: function () {
+          switch (this.operador) {
+            case "+":
+              this.resultado = this.valor1 + this.valor2;
+              break;
+            case "-":
+              this.resultado = this.valor1 - this.valor2;
+              break;
+            case "*":
+              this.resultado = this.valor1 * this.valor2;
+              break;
+            case "/":
+              this.resultado = Math.floor=this.valor1 / this.valor2;
+              this.resto = this.valor1 % this.valor2;
+              break;
+            default:
+              throw new Error("Operador invalido. Use +, -, *, ou /.");
+          }
+        },
+
+        exibirResultado: function () {
+          var resultadoString =
+           this.resultado;
+          document.getElementById('resultado').innerHTML = resultadoString;
+          
+        },
+      };
+
+      
+
+      function calcular() {
+        calculadora.obterValores();
+
+        if 
+        (calculadora.validarValores()) {
+          try {
+            calculadora.calcular();
+            calculadora.exibirResultado();
+                       } catch (error) {
+            document.getElementById('resultado').innerHTML= error.menssage; 
+          }
+        } else {
+          document.getElementById('resultado').innerHTML =
+            "Por favor, insira valores numericos.";
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Calculadora</h1>
+
+    <label for="valor1">Digite o primeiro valor:</label><input type="number" id="valor1" />
+
+    <label for="operador">Escolha o operador (+, -, *, /):</label><input type="text" id="operador" />
+
+    <label for="valor2">Digite o segundo valor:</label><input type="number" id="valor2" />
+
+    <button onclick="calcular()">Calcular</button>
+
+     <p id="resultado"></p>
+  </body>
+</html>
+ 
+    
